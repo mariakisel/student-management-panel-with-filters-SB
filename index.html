@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+        <link 
+            rel="stylesheet" 
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+            crossorigin="anonymous">        
+        <script defer src="./student-management-panel.js"></script>
+        <script>            
+            document.addEventListener('DOMContentLoaded', () => {
+                createStudentManagementPanel(document.getElementById('studentTable'));
+            });           
+
+             
+
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid" style="width: 90%; margin-top: 10px;">
+            
+            <form id="studentForm">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputSurname">Фамилия</label>
+                        <input type="text" class="form-control" id="inputSurname" placeholder="Введите фамилию">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputName">Имя</label>
+                        <input type="text" class="form-control" id="inputName" placeholder="Введите имя">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputMiddlename">Отчество</label>
+                        <input type="text" class="form-control" id="inputMiddlename" placeholder="Введите отчество">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputDateOfBirth">Дата рождения</label>
+                        <input type="date" class="form-control" id="inputDateOfBirth">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputYearOfAdmission">Год поступления</label>
+                        <input type="number" class="form-control" id="inputYearOfAdmission" placeholder="Введите год поступления" step="1">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputFaculty">Факультет</label>
+                        <input type="text" class="form-control" id="inputFaculty" placeholder="Введите факультет">
+                    </div>
+                </div>
+                <div id="validationErrors" class="text-danger"></div>
+                <button type="submit" class="btn btn-primary" style="margin: 10px 0 30px;">Добавить студента</button>
+            </form>
+        
+            <form id='searchFilter' style="margin: 10px 0;">
+                <div class="form-row">
+                  <div class="form-group col-md">
+                    <label for="filterName">Найти по ФИО</label>
+                    <input type="text" class="form-control" id="filterName" placeholder="ФИО">
+                  </div>
+                  <div class="form-group col-md">
+                    <label for="filterFaculty">Найти по факультету</label>
+                    <input type="text" class="form-control" id="filterFaculty" placeholder="Факультет">
+                  </div>
+                  <div class="form-group col-md">
+                    <label for="filterYearOfAdmission">Найти по году начала обучения</label>
+                    <input type="number" class="form-control" id="filterYearOfAdmission" placeholder="Год начала обучения" step="1">
+                  </div>
+                  <div class="form-group col-md">
+                    <label for="filterYearOfGraduation">Найти по году окончания обучения</label>
+                    <input type="number" class="form-control" id="filterYearOfGraduation" placeholder="Год окончания обучения" step="1">
+                  </div>
+                </div>
+
+                  <button type="submit" class="btn btn-primary">Поиск</button>
+                  <button id='resetFilter' type="reset" class="btn btn-primary">Сбросить фильтр</button>
+                
+              </form>
+
+        
+        <div id="studentTable"></div>
+    </div> 
+    </body>
+</html>
